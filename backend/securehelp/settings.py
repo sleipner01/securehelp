@@ -199,7 +199,7 @@ SIMPLE_JWT = {
 CSP_REPORT_URI = URL
   
 # default source as self
-CSP_DEFAULT_SRC = ("'self'", )
+CSP_DEFAULT_SRC = ("'self'")
   
 # style from our domain and bootstrapcdn
 CSP_STYLE_SRC = ("'self'", 
@@ -222,14 +222,14 @@ CSP_IMG_SRC = ("'self'",
     "googleads.g.doubleclick.net")
   
 # loading manifest, workers, frames, etc
-CSP_FONT_SRC = ("'self'", )
+CSP_FONT_SRC = ("'self'" )
 CSP_CONNECT_SRC = ("'self'", 
     "www.google-analytics.com" )
 CSP_OBJECT_SRC = ("'self'", )
 CSP_BASE_URI = ("'self'", )
-CSP_FRAME_ANCESTORS = ("'self'", )
-CSP_FORM_ACTION = ("'self'", )
-CSP_INCLUDE_NONCE_IN = ('script-src', )
-CSP_MANIFEST_SRC = ("'self'", )
-CSP_WORKER_SRC = ("'self'", )
-CSP_MEDIA_SRC = ("'self'", )
+CSP_FRAME_ANCESTORS = ("'self'")
+CSP_FORM_ACTION = ("'self'")
+CSP_INCLUDE_NONCE_IN = ('script-src')
+CSP_MANIFEST_SRC = ("'self'")
+CSP_WORKER_SRC = ("'self'")
+CSP_MEDIA_SRC = ("'self'")
