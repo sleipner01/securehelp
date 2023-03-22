@@ -79,7 +79,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.users',
     'apps.certifications',
-    'apps.help_requests'
+    'apps.help_requests',
+    'axes'
 ]
 
 MIDDLEWARE = [
@@ -91,7 +92,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
 
 ROOT_URLCONF = 'securehelp.urls'
@@ -151,6 +153,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+## AXES
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesStandaloneBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -193,3 +202,9 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': True,
 }
+
+
+# AXES
+AXES_LOGIN_FAILURE_LIMIT = 5
+AXES_COOLOFF_TIME = 1
+AXES_RESET_ON_SUCCESS = True
