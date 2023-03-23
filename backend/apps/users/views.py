@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import permissions, viewsets, filters, status, generics, views
 from apps.users.serializers import *
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenBlacklistView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from rest_framework.response import Response
@@ -244,3 +244,18 @@ class DocumentDownloadView(generics.GenericAPIView):
         else:
             raise PermissionDenied(
                 {"Message": "You do not have permission to access this file."})
+
+class LogoutView(TokenBlacklistView):
+    """View for blacklisting refresh token"""
+    permission_classes = (AllowAny,)
+    http_method_names = ['post']  # Only allow POST requests
+
+    def post(self, request):
+        try:
+            refresh_token = request.data["refresh"]
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+
+            return Response(status=status.HTTP_205_RESET_CONTENT)
+        except Exception as e:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

@@ -11,6 +11,7 @@ router.register('api/register', views.RegistrationViewSet, basename='register')
 router.register('api/login', views.LoginViewSet, basename='login')
 router.register('api/refresh', views.RefreshViewSet, basename='refresh')
 router.register('api/documents', views.DocumentViewSet, basename='documents')
+# router.register('api/blacklist', views.LogoutViewSet, basename='blacklist')
 
 urlpatterns = [*router.urls,
                path("api/verify-email/<uid>",
@@ -25,4 +26,6 @@ urlpatterns = [*router.urls,
                     views.PasswordResetEmailView.as_view(), name='password-reset-email'),
                path('api/reset-password-validate/',
                     views.SetNewPasswordView.as_view(), name='password-reset-valid'),
+               path('api/blacklist/', 
+                    views.LogoutView.as_view(), name='token_blacklist'),
                ]

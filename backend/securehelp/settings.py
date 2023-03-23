@@ -80,6 +80,7 @@ INSTALLED_APPS = [
     'apps.users',
     'apps.certifications',
     'apps.help_requests',
+    'rest_framework_simplejwt.token_blacklist',
     'axes'
 ]
 
@@ -201,6 +202,7 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60000),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
 }
 
 
