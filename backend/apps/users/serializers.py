@@ -67,9 +67,10 @@ class RegisterSerializer(UserSerializer):
         # create email to send to user
         email = validated_data["email"]
         email_subject = "Activate your account"
-        uid = urlsafe_base64_encode(user.username.encode())
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
+        token = PasswordResetTokenGenerator().make_token(user)  # Generate token
         domain = get_current_site(self.context["request"])
-        link = reverse('verify-email', kwargs={"uid": uid})
+        link = reverse('verify-email', kwargs={"uidb64": uid, "token": token})
 
         url = f"{settings.PROTOCOL}://{domain}{link}"
 
