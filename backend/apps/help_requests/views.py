@@ -99,7 +99,7 @@ class FinishHelpRequest(generics.GenericAPIView):
         try:  # check if id is valid
             rId = request.data.get('request_id')
             help_requests = HelpRequest.objects.raw(
-                "SELECT * FROM help_requests_helprequest WHERE id = '%s'" % rId)
+                "SELECT * FROM help_requests_helprequest WHERE id = %s", [rId])
             help_request = help_requests[0]
         except:
             return Response({'error': 'Invalid id'}, status=status.HTTP_400_BAD_REQUEST)
