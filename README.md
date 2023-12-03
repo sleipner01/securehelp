@@ -1,6 +1,6 @@
 # Securehelp assignment TDT4237 Spring 2023
 
-This is an assignment done by group 122 in TDT4237 Spring 2023. The assignment was to find vulnerabilities in a web application and mitigate them, logging everything in a final report. The the [exercise description](./Exercise%202%20Description%202023(3).pdf). 
+This is an assignment done by group 122 in TDT4237 Spring 2023. The assignment was to find vulnerabilities in a web application and mitigate them, logging everything in a final report. See the the [exercise description](./Exercise%202%20Description%202023(3).pdf) for more details. 
 
 The web application is a simple web application for reporting security issues. The application is written in Python and uses Django as a web framework. The frontend is written in React. 
 
