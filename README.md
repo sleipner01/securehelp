@@ -1,3 +1,11 @@
+# Securehelp assignment TDT4237 Spring 2023
+
+This is an assignment done by group 122 in TDT4237 Spring 2023. The assignment was to find vulnerabilities in a web application and mitigate them, logging everything in a final report. The the [exercise description](./Exercise%202%20Description%202023(3).pdf). 
+
+The web application is a simple web application for reporting security issues. The application is written in Python and uses Django as a web framework. The frontend is written in React. 
+
+The application was deployed using Docker and Gitlab Runner. The application was deployed on NTNU's internal network, but is not accessible anymore.
+
 # SecureHelp
 
 Security application for TDT4237 Spring 2023. Make sure to read this whole file before starting to work with the application. This document contains the following instructions:
